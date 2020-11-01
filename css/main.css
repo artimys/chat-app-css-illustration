@@ -1,0 +1,327 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+/*==========
+DEFAULTS
+=========*/
+*, ::before, ::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*==========
+COMPONENTS
+=========*/
+.bg {
+  position: fixed;
+  z-index: -1;
+  content: "";
+  width: 400px;
+  height: 50%;
+}
+
+.bg--purple {
+  top: 0;
+  left: -210px;
+  border-bottom-right-radius: 60%;
+  background-image: linear-gradient(45deg, #8838ff, #e942ff);
+}
+
+.bg--gray {
+  bottom: 0;
+  right: -210px;
+  border-top-left-radius: 70%;
+  border-top-right-radius: 60%;
+  background-color: #f5f3f7;
+}
+
+.phone {
+  width: 320px;
+  min-height: 500px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 35px;
+  padding: 14px;
+  font-size: 0.6rem;
+}
+
+.phone__frame {
+  position: relative;
+  height: 100%;
+  border-radius: 30px;
+  background-color: #f5f3f7;
+  overflow: hidden;
+}
+
+.phone__frame::before {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  top: -31.57895px;
+  left: 50%;
+  margin-left: -30%;
+  width: 60%;
+  height: 60px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.phone__top {
+  padding: 45px 20px 15px;
+  margin-bottom: 15px;
+  background-image: linear-gradient(45deg, #8838ff, #e942ff);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.phone__heading {
+  text-align: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.phone__avatar {
+  display: inline-block;
+  width: 33px;
+  height: 33px;
+  margin: 0 10px;
+}
+
+.phone__avatar img {
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.phone__name {
+  font-weight: 500;
+}
+
+.phone__status {
+  color: #d89eff;
+  font-weight: 400;
+}
+
+.phone__message {
+  max-width: 53%;
+  background-color: white;
+  border-radius: 12px;
+  padding: 8px 10px;
+  margin: 0 12px 10px;
+  float: right;
+  text-align: left;
+  line-height: 0.88rem;
+}
+
+.phone__message--sent {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  border-bottom-right-radius: 3px;
+  color: #6e5d7e;
+}
+
+.phone__message--received {
+  float: left;
+  border-bottom-left-radius: 4px;
+  background-color: #ede5f2;
+  color: #9241c8;
+}
+
+.phone__message--attachment {
+  max-width: 90%;
+  background-color: transparent;
+  padding: 0;
+  margin-top: 11px;
+  margin-bottom: 7px;
+}
+
+.phone__message--attachment div {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.phone__message--attachment img {
+  width: 100%;
+  border-radius: 13px;
+}
+
+.phone__message--interactive {
+  float: left;
+  border-bottom-left-radius: 4px;
+  background-image: linear-gradient(45deg, #e942ff, #8838ff);
+  padding: 12px 23px 12px 10px;
+  color: white;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 65%;
+  width: 65%;
+  -webkit-column-gap: 9px;
+          column-gap: 9px;
+}
+
+.phone__radio {
+  color: #e570ff;
+  font-size: 1rem;
+}
+
+.phone__desc {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.phone__rate {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.phone__new-message {
+  position: relative;
+  margin: 12px;
+}
+
+.phone__new-message input, .phone__new-message button {
+  border: 0;
+}
+
+.phone__new-message input {
+  width: 100%;
+  height: 45px;
+  border-radius: 30px;
+  padding: 5px 25px 0;
+}
+
+.phone__new-message input::-webkit-input-placeholder {
+  font-size: 0.7rem;
+  color: #c6cacd;
+}
+
+.phone__new-message input:-ms-input-placeholder {
+  font-size: 0.7rem;
+  color: #c6cacd;
+}
+
+.phone__new-message input::-ms-input-placeholder {
+  font-size: 0.7rem;
+  color: #c6cacd;
+}
+
+.phone__new-message input::placeholder {
+  font-size: 0.7rem;
+  color: #c6cacd;
+}
+
+.phone__new-message button {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  top: 5px;
+  right: 7px;
+  border-radius: 50%;
+  background-color: #3e2753;
+  font-size: 0.95rem;
+  color: white;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/*==========
+LAYOUT
+=========*/
+header, main {
+  width: 85%;
+  min-width: 318px;
+  max-width: 1050px;
+  text-align: center;
+}
+
+header {
+  margin: 4em 0 5em;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 2em;
+}
+
+/*==========
+DESKTOP
+=========*/
+@media only screen and (min-width: 1100px) {
+  .bg {
+    width: 420px;
+    height: 700px;
+  }
+  .bg--purple {
+    left: -100px;
+    border-bottom-left-radius: 200px;
+    border-bottom-right-radius: 200px;
+  }
+  .bg--gray {
+    right: -110px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+  }
+}
+/*# sourceMappingURL=main.css.map */

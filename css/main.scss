@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+
+// Primary colors
+$pale-violet: hsl(276, 100%, 81%);                  // sub-heading at the top of the app UI
+$moderate-violet: hsl(276, 55%, 52%);               // chat on the left
+$desaturated-dark-violet: hsl(271, 15%, 43%);       // chat on the right
+$grayish-blue: hsl(206, 6%, 79%);                   // placeholder text
+$very-dark-desaturated-violet: hsl(271, 36%, 24%);  // main heading
+$dark-grayish-violet: hsl(270, 7%, 64%);            // paragraph
+
+
+// Gradient colors
+$light-magenta: hsl(293, 100%, 63%);
+$light-Violet: hsl(264, 100%, 61%);
+
+// Secondary colors
+$white: hsl(0, 0%, 100%);
+$light-grayish-violet: hsl(270, 20%, 96%);           // app background
+$very-dark-desaturated-violet: hsl(271, 36%, 24%);   // submit button background
+$very-light-magenta: hsl(289, 100%, 72%);            // radio-button-outline
+
+
+
+/*==========
+DEFAULTS
+=========*/
+
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*==========
+COMPONENTS
+=========*/
+
+// Background columns
+.bg {
+    position: fixed;
+    z-index: -1;
+    content: "";
+    width: 400px;
+    height: 50%;
+
+    &--purple {
+        top: 0;
+        left: -210px;
+        // border-bottom-left-radius: 60%;
+        border-bottom-right-radius: 60%;
+        background-image: linear-gradient(45deg, $light-Violet, $light-magenta);
+    }
+    &--gray {
+        bottom: 0;
+        right: -210px;
+        border-top-left-radius: 70%;
+        border-top-right-radius: 60%;
+        background-color: $light-grayish-violet;
+    }
+}
+
+// Phone illustration
+$phone-width: 320px; // 250px
+$phone-height: 500px; // 500px
+.phone {
+    width: $phone-width;
+    min-height: $phone-height;
+    background-color: #fff;
+    box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 35px;
+    padding: 14px;
+    // font-size: 10px; // works also
+    font-size: 0.6rem;
+
+    &__frame {
+        position: relative;
+        height: 100%;
+        border-radius: 30px;
+        background-color: $light-grayish-violet;
+        overflow: hidden;
+
+        $phone-frame-width: 60%;
+        $phone-frame-height: 60px;
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: 5;
+            top: -($phone-frame-height / 1.9);
+            left: 50%;
+            margin-left: -($phone-frame-width / 2);
+            width: $phone-frame-width;
+            height: $phone-frame-height;
+            border-radius:  20px;
+            background-color: #fff;
+        }
+    }
+
+
+    // Top frame of phone
+    &__top {
+        padding: 45px 20px 15px;
+        margin-bottom: 15px; // Pushes start of messages
+        background-image: linear-gradient(45deg, $light-Violet, $light-magenta);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+    }
+    &__heading {
+        text-align: left;
+        flex: 1;
+        display: inline-flex;
+    }
+    &__avatar {
+        display: inline-block;
+        width: 33px;
+        height: 33px;
+        margin: 0 10px;
+        img {
+            width: 100%;
+            border-radius: 50%;
+            border: 1px solid $white;
+        }
+    }
+    &__name {
+        font-weight: 500;
+    }
+    &__status {
+        color: $pale-violet;
+        font-weight: 400;
+    }
+
+
+    // Different type of phone messages
+    &__message {
+        max-width: 53%;
+        background-color: $white;
+        border-radius: 12px;
+        padding: 8px 10px;
+        margin: 0 12px 10px;  // Outer spacing for messages
+        float: right;
+        text-align: left;
+        line-height: 0.88rem;
+
+        &--sent {
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-bottom-right-radius: 3px;
+            color: $desaturated-dark-violet;
+        }
+        &--received {
+            float: left;
+            border-bottom-left-radius: 4px;
+            background-color: rgb(237,229,242);
+            color: $moderate-violet;
+        }
+        &--attachment {
+            max-width: 90%;
+            background-color: transparent;
+            padding: 0;
+            margin-top: 11px;
+            margin-bottom: 7px;
+            div {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                margin-left: 10px;
+            }
+            img {
+                width: 100%;
+                border-radius: 13px;
+            }
+        }
+        &--interactive {
+            float: left;
+            border-bottom-left-radius: 4px;
+            background-image: linear-gradient(45deg, $light-magenta, $light-Violet);
+            padding: 12px 23px 12px 10px;
+            color: $white;
+
+            // Vertically center price options
+            display: inline-flex;
+            align-items: center;
+            max-width: 65%;
+            width: 65%;
+            column-gap: 9px;
+        }
+    }
+
+    &__radio {
+        color: $very-light-magenta;
+        font-size: 1rem;
+    }
+    &__desc {
+        flex: 1;
+    }
+    &__rate {
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+
+
+    // Input for messages
+    &__new-message {
+        position: relative;
+        margin: 12px;   // Left/right margin is important to match messages
+
+        $new-message-height: 45px;
+        $new-message-button-size: $new-message-height - 10px;
+
+        input, button {
+            border: 0;
+        }
+        input {
+            width: 100%;
+            height: $new-message-height;
+            border-radius: 30px;
+            padding: 5px 25px 0;
+            &::placeholder {
+                font-size: 0.7rem;
+                color: $grayish-blue;
+            }
+        }
+        button {
+            position: absolute;
+            width: $new-message-button-size;
+            height: $new-message-button-size;
+            top: 5px;
+            right: 7px;
+            border-radius: 50%;
+            background-color: $very-dark-desaturated-violet;
+            font-size: 0.95rem;
+            color: $white;
+            // Center arrow
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+
+
+/*==========
+LAYOUT
+=========*/
+
+header, main {
+    width: 85%;
+    min-width: 318px;
+    max-width: 1050px;
+    text-align: center;
+}
+
+header {
+    margin: 4em 0 5em;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2em;
+}
+
+
+
+
+/*==========
+DESKTOP
+=========*/
+
+@media only screen and (min-width: 1100px) {
+    .bg {
+        width: 420px;
+        height: 700px;
+
+        &--purple {
+            left: -100px;
+            border-bottom-left-radius: 200px;
+            border-bottom-right-radius: 200px;
+        }
+        &--gray {
+            right: -110px;
+            border-top-left-radius: 200px;
+            border-top-right-radius: 200px;
+        }
+    }
+
+    main {
+        // flex-direction: row;
+        // align-items: center;
+    }
+}
