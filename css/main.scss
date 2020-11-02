@@ -58,31 +58,57 @@ COMPONENTS
     &--purple {
         top: 0;
         left: -210px;
-        // border-bottom-left-radius: 60%;
-        border-bottom-right-radius: 60%;
+        height: 60%;
+        border-bottom-left-radius: 100px;
+        border-bottom-right-radius: 250px;
         background-image: linear-gradient(45deg, $light-Violet, $light-magenta);
     }
     &--gray {
         bottom: 0;
         right: -210px;
-        border-top-left-radius: 70%;
-        border-top-right-radius: 60%;
+        border-top-left-radius: 600px;
+        border-top-right-radius: 250px;
         background-color: $light-grayish-violet;
     }
 }
 
 // Phone illustration
-$phone-width: 320px; // 250px
-$phone-height: 500px; // 500px
+$phone-width: 250px; // 250px
+$phone-height: 300px; // 500px
+$phone-font-size: 0.48rem;  // large 0.6rem
+$phone-white-frame-thickness: 9px;  // large 14px
+
+$phone-frame-notch-width: 60%;
+$phone-frame-notch-height: 35px; // large 60px
+$phone-frame-notch-radius: 12px; // large 20px
+
+$phone-top-padding: 32px 20px 10px;  // 45px 20px 15px
+$phone-top-avatar-size: 25px; // 33px
+
+$phone-message-list-top-margin: 11px; // 15px
+$phone-message-max-width: 54%; // 53%
+$phone-message-padding: 7px 8px; // 8px 10px
+$phone-message-margin: 0 9px 8px; // 0 12px 10px - left/right margin must match `new messages` margin
+$phone-message-line-height: 0.8rem; // 0.88rem
+$phone-message-attachment-size: 35px; // 50px
+$phone-message-attachment-radius: 10px; // 13px
+
+$phone-message-interactive-padding: 7px 23px 7px 10px; // 12px 23px 12px 10px
+$phone-message-interactive-radio-font-size: 0.9rem; // 1rem
+$phone-message-interactive-rate-font-size: 0.7rem; // 0.9rem
+
+$phone-new-message-height: 40px; // 45px
+$phone-new-message-margin: 9px; // 12px - left/right margin must match `messages` margin
+$phone-new-message-button-size: $phone-new-message-height - 10px;
+
 .phone {
     width: $phone-width;
     min-height: $phone-height;
     background-color: #fff;
     box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
     border-radius: 35px;
-    padding: 14px;
-    // font-size: 10px; // works also
-    font-size: 0.6rem;
+    padding: $phone-white-frame-thickness;
+    font-size: $phone-font-size;
 
     &__frame {
         position: relative;
@@ -91,18 +117,17 @@ $phone-height: 500px; // 500px
         background-color: $light-grayish-violet;
         overflow: hidden;
 
-        $phone-frame-width: 60%;
-        $phone-frame-height: 60px;
+        // Frame notch
         &::before {
             content: "";
             position: absolute;
-            z-index: 5;
-            top: -($phone-frame-height / 1.9);
+            z-index: 9999915;
+            top: -($phone-frame-notch-height / 1.9);
             left: 50%;
-            margin-left: -($phone-frame-width / 2);
-            width: $phone-frame-width;
-            height: $phone-frame-height;
-            border-radius:  20px;
+            margin-left: -($phone-frame-notch-width / 2);
+            width: $phone-frame-notch-width;
+            height: $phone-frame-notch-height;
+            border-radius: $phone-frame-notch-radius;
             background-color: #fff;
         }
     }
@@ -110,8 +135,7 @@ $phone-height: 500px; // 500px
 
     // Top frame of phone
     &__top {
-        padding: 45px 20px 15px;
-        margin-bottom: 15px; // Pushes start of messages
+        padding: $phone-top-padding;
         background-image: linear-gradient(45deg, $light-Violet, $light-magenta);
         display: flex;
         justify-content: center;
@@ -125,8 +149,8 @@ $phone-height: 500px; // 500px
     }
     &__avatar {
         display: inline-block;
-        width: 33px;
-        height: 33px;
+        width: $phone-top-avatar-size;
+        height: $phone-top-avatar-size;
         margin: 0 10px;
         img {
             width: 100%;
@@ -144,19 +168,22 @@ $phone-height: 500px; // 500px
 
 
     // Different type of phone messages
+    &__messages {
+        margin-top: $phone-message-list-top-margin;
+    }
     &__message {
-        max-width: 53%;
+        max-width: $phone-message-max-width;
         background-color: $white;
         border-radius: 12px;
-        padding: 8px 10px;
-        margin: 0 12px 10px;  // Outer spacing for messages
+        padding: $phone-message-padding;
+        margin: $phone-message-margin;
         float: right;
         text-align: left;
-        line-height: 0.88rem;
+        line-height: $phone-message-line-height;
 
         &--sent {
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            border-bottom-right-radius: 3px;
+            border-bottom-right-radius: 4px;
             color: $desaturated-dark-violet;
         }
         &--received {
@@ -173,20 +200,20 @@ $phone-height: 500px; // 500px
             margin-bottom: 7px;
             div {
                 display: inline-block;
-                width: 50px;
-                height: 50px;
+                width: $phone-message-attachment-size;
+                height: $phone-message-attachment-size;
                 margin-left: 10px;
             }
             img {
                 width: 100%;
-                border-radius: 13px;
+                border-radius: $phone-message-attachment-radius;
             }
         }
         &--interactive {
             float: left;
             border-bottom-left-radius: 4px;
             background-image: linear-gradient(45deg, $light-magenta, $light-Violet);
-            padding: 12px 23px 12px 10px;
+            padding: $phone-message-interactive-padding;
             color: $white;
 
             // Vertically center price options
@@ -200,7 +227,7 @@ $phone-height: 500px; // 500px
 
     &__radio {
         color: $very-light-magenta;
-        font-size: 1rem;
+        font-size: $phone-message-interactive-radio-font-size;
     }
     &__desc {
         flex: 1;
@@ -208,7 +235,7 @@ $phone-height: 500px; // 500px
         color: $pale-violet;
     }
     &__rate {
-        font-size: 0.9rem;
+        font-size: $phone-message-interactive-rate-font-size;
         font-weight: 700;
     }
 
@@ -216,19 +243,14 @@ $phone-height: 500px; // 500px
     // Input for messages
     &__new-message {
         position: relative;
-        margin: 12px;   // Left/right margin is important to match messages
+        margin: $phone-new-message-margin;
 
-        $new-message-height: 45px;
-        $new-message-button-size: $new-message-height - 10px;
-
-        input, button {
-            border: 0;
-        }
         input {
             width: 100%;
-            height: $new-message-height;
+            height: $phone-new-message-height;
+            border: 0;
             border-radius: 30px;
-            padding: 5px 25px 0;
+            padding: 5px 45px 0 25px;
             font-family: 'Rubik', sans-serif;
             font-size: 0.7rem;
             &::placeholder {
@@ -237,10 +259,11 @@ $phone-height: 500px; // 500px
         }
         button {
             position: absolute;
-            width: $new-message-button-size;
-            height: $new-message-button-size;
+            width: $phone-new-message-button-size;
+            height: $phone-new-message-button-size;
             top: 5px;
             right: 7px;
+            border: 0;
             border-radius: 50%;
             background-color: $very-dark-desaturated-violet;
             font-size: 0.95rem;
@@ -296,34 +319,36 @@ DESKTOP
         height: 700px;
 
         &--purple {
-            left: -100px;
+            left: -135px;
             border-bottom-left-radius: 600px;
             border-bottom-right-radius: 600px;
         }
         &--gray {
-            right: -300px;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
+            right: -110px;
+            border-top-left-radius: 250px;
+            border-top-right-radius: 200px;
         }
     }
 
     main {
-        max-width: 949px;
+        max-width: 815px;
         display: flex;
         flex-direction: row;
         align-items: center;
-        column-gap: 8.5em;
+        column-gap: 7em;
     }
 
     .introduction {
+        margin-top: 0; // Reset mobile margin
         text-align: left;
 
         &__heading {
-            font-size: 3.2rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.3em;
         }
         &__description {
-            font-size: 1.2rem;
-            line-height: 2.2rem;
+            font-size: 1rem;
+            line-height: 1.7rem;
         }
     }
 }

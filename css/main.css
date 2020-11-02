@@ -42,27 +42,29 @@ COMPONENTS
 .bg--purple {
   top: 0;
   left: -210px;
-  border-bottom-right-radius: 60%;
+  height: 60%;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 250px;
   background-image: linear-gradient(45deg, #8838ff, #e942ff);
 }
 
 .bg--gray {
   bottom: 0;
   right: -210px;
-  border-top-left-radius: 70%;
-  border-top-right-radius: 60%;
+  border-top-left-radius: 600px;
+  border-top-right-radius: 250px;
   background-color: #f5f3f7;
 }
 
 .phone {
-  width: 320px;
-  min-height: 500px;
+  width: 250px;
+  min-height: 300px;
   background-color: #fff;
   -webkit-box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
           box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
   border-radius: 35px;
-  padding: 14px;
-  font-size: 0.6rem;
+  padding: 9px;
+  font-size: 0.48rem;
 }
 
 .phone__frame {
@@ -76,19 +78,18 @@ COMPONENTS
 .phone__frame::before {
   content: "";
   position: absolute;
-  z-index: 5;
-  top: -31.57895px;
+  z-index: 9999915;
+  top: -18.42105px;
   left: 50%;
   margin-left: -30%;
   width: 60%;
-  height: 60px;
-  border-radius: 20px;
+  height: 35px;
+  border-radius: 12px;
   background-color: #fff;
 }
 
 .phone__top {
-  padding: 45px 20px 15px;
-  margin-bottom: 15px;
+  padding: 32px 20px 10px;
   background-image: linear-gradient(45deg, #8838ff, #e942ff);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -114,8 +115,8 @@ COMPONENTS
 
 .phone__avatar {
   display: inline-block;
-  width: 33px;
-  height: 33px;
+  width: 25px;
+  height: 25px;
   margin: 0 10px;
 }
 
@@ -134,21 +135,25 @@ COMPONENTS
   font-weight: 400;
 }
 
+.phone__messages {
+  margin-top: 11px;
+}
+
 .phone__message {
-  max-width: 53%;
+  max-width: 54%;
   background-color: white;
   border-radius: 12px;
-  padding: 8px 10px;
-  margin: 0 12px 10px;
+  padding: 7px 8px;
+  margin: 0 9px 8px;
   float: right;
   text-align: left;
-  line-height: 0.88rem;
+  line-height: 0.8rem;
 }
 
 .phone__message--sent {
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-  border-bottom-right-radius: 3px;
+  border-bottom-right-radius: 4px;
   color: #6e5d7e;
 }
 
@@ -169,21 +174,21 @@ COMPONENTS
 
 .phone__message--attachment div {
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   margin-left: 10px;
 }
 
 .phone__message--attachment img {
   width: 100%;
-  border-radius: 13px;
+  border-radius: 10px;
 }
 
 .phone__message--interactive {
   float: left;
   border-bottom-left-radius: 4px;
   background-image: linear-gradient(45deg, #e942ff, #8838ff);
-  padding: 12px 23px 12px 10px;
+  padding: 7px 23px 7px 10px;
   color: white;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -199,7 +204,7 @@ COMPONENTS
 
 .phone__radio {
   color: #e570ff;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .phone__desc {
@@ -211,24 +216,21 @@ COMPONENTS
 }
 
 .phone__rate {
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   font-weight: 700;
 }
 
 .phone__new-message {
   position: relative;
-  margin: 12px;
-}
-
-.phone__new-message input, .phone__new-message button {
-  border: 0;
+  margin: 9px;
 }
 
 .phone__new-message input {
   width: 100%;
-  height: 45px;
+  height: 40px;
+  border: 0;
   border-radius: 30px;
-  padding: 5px 25px 0;
+  padding: 5px 45px 0 25px;
   font-family: 'Rubik', sans-serif;
   font-size: 0.7rem;
 }
@@ -251,10 +253,11 @@ COMPONENTS
 
 .phone__new-message button {
   position: absolute;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   top: 5px;
   right: 7px;
+  border: 0;
   border-radius: 50%;
   background-color: #3e2753;
   font-size: 0.95rem;
@@ -313,17 +316,17 @@ DESKTOP
     height: 700px;
   }
   .bg--purple {
-    left: -100px;
+    left: -135px;
     border-bottom-left-radius: 600px;
     border-bottom-right-radius: 600px;
   }
   .bg--gray {
-    right: -300px;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
+    right: -110px;
+    border-top-left-radius: 250px;
+    border-top-right-radius: 200px;
   }
   main {
-    max-width: 949px;
+    max-width: 815px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -334,18 +337,20 @@ DESKTOP
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-column-gap: 8.5em;
-            column-gap: 8.5em;
+    -webkit-column-gap: 7em;
+            column-gap: 7em;
   }
   .introduction {
+    margin-top: 0;
     text-align: left;
   }
   .introduction__heading {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.3em;
   }
   .introduction__description {
-    font-size: 1.2rem;
-    line-height: 2.2rem;
+    font-size: 1rem;
+    line-height: 1.7rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
