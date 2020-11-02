@@ -136,9 +136,7 @@ COMPONENTS
 }
 
 .phone__messages {
-  margin-top: 11px;
-  overflow-y: scroll;
-  height: 405px;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -158,6 +156,10 @@ COMPONENTS
   margin: 0 9px 8px;
   text-align: left;
   line-height: 0.8rem;
+}
+
+.phone__message:first-child {
+  margin-top: 11px;
 }
 
 .phone__message--sent {

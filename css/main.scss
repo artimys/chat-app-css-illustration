@@ -172,9 +172,9 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
 
     // Different type of phone messages
     &__messages {
-        margin-top: $phone-message-list-top-margin;
-        overflow-y: scroll;
-        height: 405px;
+        overflow: hidden;
+        // overflow-y: scroll;
+        // height: 365px;
         display: flex;
         flex-direction: column;
     }
@@ -187,6 +187,10 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
         margin: $phone-message-margin;
         text-align: left;
         line-height: $phone-message-line-height;
+
+        &:first-child {
+            margin-top: $phone-message-list-top-margin;
+        }
 
         &--sent {
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
