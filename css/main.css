@@ -137,15 +137,25 @@ COMPONENTS
 
 .phone__messages {
   margin-top: 11px;
+  overflow-y: scroll;
+  height: 405px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .phone__message {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   max-width: 54%;
   background-color: white;
   border-radius: 12px;
   padding: 7px 8px;
   margin: 0 9px 8px;
-  float: right;
   text-align: left;
   line-height: 0.8rem;
 }
@@ -158,7 +168,8 @@ COMPONENTS
 }
 
 .phone__message--received {
-  float: left;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   border-bottom-left-radius: 4px;
   background-color: #ede5f2;
   color: #9241c8;
@@ -185,7 +196,8 @@ COMPONENTS
 }
 
 .phone__message--interactive {
-  float: left;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   border-bottom-left-radius: 4px;
   background-image: linear-gradient(45deg, #e942ff, #8838ff);
   padding: 7px 23px 7px 10px;
@@ -262,6 +274,7 @@ COMPONENTS
   background-color: #3e2753;
   font-size: 0.6rem;
   color: white;
+  cursor: pointer;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -271,6 +284,10 @@ COMPONENTS
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.phone__new-message button:hover {
+  background-color: #654087;
 }
 
 /*==========

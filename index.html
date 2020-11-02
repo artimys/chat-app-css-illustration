@@ -7,6 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link href="css/all.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
+  <script src="js/main.js" defer></script>
 
   <title>Frontend Mentor | Chat App CSS Illustration</title>
 
@@ -46,7 +47,7 @@
               </div>
             </div>
 
-            <div class="phone__messages">
+            <div id="phoneMessageList" class="phone__messages">
               <div class="phone__message phone__message--received">
                 That sounds great. I’d be happy with that.
               </div>
@@ -93,13 +94,14 @@
               </div>
             </div>
 
-            <div style="clear: both;"></div>
 
             <div class="phone__new-message">
-              <input type="text" id="newMessage" name="newMessage" placeholder="Type a message...">
+              <form id="newMessageForm">
+              <input type="text" id="newMessage" name="newMessage" autocomplete="off" placeholder="Type a message...">
               <button>
                 <i class="fas fa-chevron-right"></i>
               </button>
+              </form>
             </div>
 
         </div>

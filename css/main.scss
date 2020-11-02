@@ -173,14 +173,18 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
     // Different type of phone messages
     &__messages {
         margin-top: $phone-message-list-top-margin;
+        overflow-y: scroll;
+        height: 405px;
+        display: flex;
+        flex-direction: column;
     }
     &__message {
+        align-self: flex-end;
         max-width: $phone-message-max-width;
         background-color: $white;
         border-radius: 12px;
         padding: $phone-message-padding;
         margin: $phone-message-margin;
-        float: right;
         text-align: left;
         line-height: $phone-message-line-height;
 
@@ -190,7 +194,7 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
             color: $desaturated-dark-violet;
         }
         &--received {
-            float: left;
+            align-self: flex-start;
             border-bottom-left-radius: 4px;
             background-color: rgb(237,229,242);
             color: $moderate-violet;
@@ -213,7 +217,7 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
             }
         }
         &--interactive {
-            float: left;
+            align-self: flex-start;
             border-bottom-left-radius: 4px;
             background-image: linear-gradient(45deg, $light-magenta, $light-Violet);
             padding: $phone-message-interactive-padding;
@@ -271,10 +275,15 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
             background-color: $very-dark-desaturated-violet;
             font-size: $phone-new-message-button-font-size;
             color: $white;
+            cursor: pointer;
             // Center arrow
             display: inline-flex;
             align-items: center;
             justify-content: center;
+
+            &:hover {
+                background-color: lighten($very-dark-desaturated-violet, 15%);
+            }
         }
     }
 }
