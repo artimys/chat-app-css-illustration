@@ -174,7 +174,6 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
     &__messages {
         overflow: hidden;
         // overflow-y: scroll;
-        // height: 365px;
         display: flex;
         flex-direction: column;
     }
@@ -249,6 +248,7 @@ $phone-new-message-button-font-size: 0.6rem;  // 0.95rem
         font-size: $phone-message-interactive-rate-font-size;
         font-weight: 700;
     }
+
 
 
     // Input for messages

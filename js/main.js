@@ -11,19 +11,18 @@ newMessageForm.addEventListener("submit", function(e) {
     let = messageInput = newMessageInput.value;
 
     // Set a few styles for messages container at first user input
-    if (messagesHeightAssigned == false) {
+    if (!messagesHeightAssigned) {
         messagesHeightAssigned = true;
 
         // Dynamically set height for messages container.
         // off a few pixels in different browsers
         phoneMessageList.style.height = phoneMessageList.clientHeight + "px";
-
-        // Display vertical scrollbar
-        phoneMessageList.style.overflowY = "scroll";
     }
 
     // Proceed only if message is entered in input
     if (messageInput.length > 0) {
+        // Display vertical scrollbar
+        phoneMessageList.style.overflowY = "scroll";
 
         // Insert new message into message list
         phoneMessageList.insertAdjacentHTML("beforeend",
