@@ -75,12 +75,12 @@ COMPONENTS
 // Phone illustration
 $phone-width: 250px; // 250px
 $phone-height: 300px; // 500px
-$phone-font-size: 0.48rem;  // large 0.6rem
+$phone-font-size: 0.48rem;  // 0.6rem
 $phone-white-frame-thickness: 9px;  // large 14px
 
 $phone-frame-notch-width: 60%;
-$phone-frame-notch-height: 35px; // large 60px
-$phone-frame-notch-radius: 12px; // large 20px
+$phone-frame-notch-height: 35px; // 60px
+$phone-frame-notch-radius: 12px; // 20px
 
 $phone-top-padding: 32px 20px 10px;  // 45px 20px 15px
 $phone-top-avatar-size: 25px; // 33px
@@ -97,23 +97,26 @@ $phone-message-interactive-padding: 7px 23px 7px 10px; // 12px 23px 12px 10px
 $phone-message-interactive-radio-font-size: 0.9rem; // 1rem
 $phone-message-interactive-rate-font-size: 0.7rem; // 0.9rem
 
-$phone-new-message-height: 40px; // 45px
-$phone-new-message-margin: 9px; // 12px - left/right margin must match `messages` margin
-$phone-new-message-button-size: $phone-new-message-height - 10px;
+$phone-new-message-height: 30px; // 45px
+$phone-new-message-margin: 5px 9px 12px; // 12px - left/right margin must match `messages` margin
+$phone-new-message-button-size: $phone-new-message-height - 9px;
+$phone-new-message-input-padding: 5px 45px 4px 15px;  // 5px 45px 0 25px
+$phone-new-message-input-font-size: 0.6rem;  // 0.7rem
+$phone-new-message-button-font-size: 0.6rem;  // 0.95rem
 
 .phone {
     width: $phone-width;
     min-height: $phone-height;
     background-color: #fff;
     box-shadow: 0 15px 25px 3px rgba(0, 0, 0, 0.2);
-    border-radius: 35px;
+    border-radius: 30px;
     padding: $phone-white-frame-thickness;
     font-size: $phone-font-size;
 
     &__frame {
         position: relative;
         height: 100%;
-        border-radius: 30px;
+        border-radius: 25px;
         background-color: $light-grayish-violet;
         overflow: hidden;
 
@@ -250,9 +253,9 @@ $phone-new-message-button-size: $phone-new-message-height - 10px;
             height: $phone-new-message-height;
             border: 0;
             border-radius: 30px;
-            padding: 5px 45px 0 25px;
+            padding: $phone-new-message-input-padding;
             font-family: 'Rubik', sans-serif;
-            font-size: 0.7rem;
+            font-size: $phone-new-message-input-font-size;
             &::placeholder {
                 color: $grayish-blue;
             }
@@ -261,12 +264,12 @@ $phone-new-message-button-size: $phone-new-message-height - 10px;
             position: absolute;
             width: $phone-new-message-button-size;
             height: $phone-new-message-button-size;
-            top: 5px;
-            right: 7px;
+            top: 4px;
+            right: 4px;
             border: 0;
             border-radius: 50%;
             background-color: $very-dark-desaturated-violet;
-            font-size: 0.95rem;
+            font-size: $phone-new-message-button-font-size;
             color: $white;
             // Center arrow
             display: inline-flex;
